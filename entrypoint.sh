@@ -34,7 +34,13 @@ then
     then
         echo "## [TESTING] Keyword was found but no release was created."
     else
-        echo $DATA | http POST $URL "Authorization: Bearer ${GITHUB_TOKEN}" "Accept: application/vnd.github+json" | jq .
+        # echo $DATA | http POST $URL | jq .
+        curl -H 'Authorization: ${GITHUB_TOKEN}' $URL
+        # also post with httpie
+        # echo $DATA | http POST $URL \
+        #     "Authorization: Bearer ${GITHUB_TOKEN}" \
+        #     "Accept: application/vnd.github.v3+json" \
+        #     "Content-Type: application/json" | jq .
     fi
 # otherwise
 else
