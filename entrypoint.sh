@@ -28,7 +28,8 @@ then
     DATA="${DATA} $(printf '"body":"Automated release based on keyword: %s",' "$*")"
     DATA="${DATA} $(printf '"draft":false, "prerelease":false}')"
 
-    URL="https://api.github.com/repos/${GITHUB_REPOSITORY}/releases"
+    # URL="https://api.github.com/repos/${GITHUB_REPOSITORY}/releases"
+    URL="https://api.github.com/repos/haarch/super-cool-project/releases" 
 
     if [[ "${LOCAL_TEST}" == *"true"* ]];
     then
