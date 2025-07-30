@@ -38,7 +38,7 @@ then
         # echo $DATA | http POST $URL | jq .
         # curl -H 'Authorization: ${GITHUB_TOKEN}' $URL
         # also post with httpie
-        echo $DATA | http POST $URL Authorization: "token ${GITHUB_TOKEN}" | jq .
+        echo $DATA | http POST $URL "Authorization: token ${GITHUB_TOKEN}" Content-Type:application/json | jq .
     fi
 # otherwise
 else
