@@ -28,8 +28,8 @@ then
     DATA="${DATA} $(printf '"body":"Automated release based on keyword: %s",' "$*")"
     DATA="${DATA} $(printf '"draft":false, "prerelease":false}')"
 
-    # URL="https://api.github.com/repos/${GITHUB_REPOSITORY}/releases"
-    URL="https://api.github.com/repos/haarch/super-cool-project/releases" 
+    URL="https://api.github.com/repos/${GITHUB_REPOSITORY}/releases"
+    # URL="https://api.github.com/repos/haarch/super-cool-project/releases" 
 
     if [[ "${LOCAL_TEST}" == *"true"* ]];
     then
@@ -38,7 +38,7 @@ then
         # echo $DATA | http POST $URL | jq .
         # curl -H 'Authorization: ${GITHUB_TOKEN}' $URL
         # also post with httpie
-        echo $DATA | http POST $URL "Authorization: ${GITHUB_TOKEN}" | jq .
+        echo $DATA | http POST $URL Authorization: "token ${GITHUB_TOKEN}" | jq .
     fi
 # otherwise
 else
